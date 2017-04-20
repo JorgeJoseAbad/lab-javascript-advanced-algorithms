@@ -1,29 +1,42 @@
 function StackDataStructure () {
     this.stackControl=[];
-    this.MAX_SIZE=40;
+    this.MAX_SIZE=10;
     this.isEmpty=function(){};
     this.canPush=function(){};
-    this.push=function(){};
-    this.pop=function(){};
+    //this.push=function(){};
+    //this.pop=function(){};
     this.isEmpty=function(){
-            return true;
+            if (this.stackControl.length===0)
+                return true;
+            else return false;
 
     };
     this.canPush=function(){
-      return true;
+      if (this.stackControl.length<this.MAX_SIZE) return true;
+      else return false;
     };
 
-    this.push=function(){
-      push.this.stackControl=function(){
+    this.push=function(item){
+      if (this.canPush()){
+        if (this.stackControl.push(item)){
+          //console.log(this.stackControl);
+          return this.stackControl;}
+        }
+      else return 'Stack Overflow';
+    };
 
-     return 1;};
-   };
+    this.pop=function(){
+      if (this.isEmpty()) return 'Stack Underflow';
+      else return this.stackControl.pop();
+    };
 
 }
 
+/* original ya nodificado
 function StackDataStructure () {
 
 
 
 
 }
+*/
