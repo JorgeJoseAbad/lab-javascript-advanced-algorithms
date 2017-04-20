@@ -59,7 +59,7 @@ describe("Stack", function() {
     it ("Should return the stack when an element is inserted", function () {
       expect(stack.push(19)).toEqual([19]);
     });
-    
+
     it ("Should insert the elements in the received order", function () {
       stack.push(19);
       stack.push(88);
@@ -166,7 +166,7 @@ describe("Queues", function() {
       expect(queue.queueControl).toEqual([88, 19]);
     });
 
-    it ("Should return 'Stack Overflow' if the stack is full", function () {
+    it ("Should return 'Queue Overflow' if the stack is full", function () {
       queue.MAX_SIZE = 1;
       queue.enqueue(19);
 
