@@ -1,3 +1,11 @@
+
+/*
+  Jasmine is a behavior-driven development framework for testing JavaScript code.
+  It does not depend on any other JavaScript frameworks.
+  It does not require a DOM. And it has a clean,
+  obvious syntax so that you can easily write tests.
+*/
+
 describe("Stack", function() {
   var stack;
 
@@ -46,7 +54,8 @@ describe("Stack", function() {
   describe ("Stack methods usage", function () {
     it ("Should add the indicated element to the stack", function () {
       stack.push(19);
-
+      //The push() method adds new items to the end of an array,
+      //and returns the new length.
       expect(stack.stackControl.length).toBe(1);
     });
 
@@ -63,9 +72,18 @@ describe("Stack", function() {
     it ("Should insert the elements in the received order", function () {
       stack.push(19);
       stack.push(88);
+      stack.push("hola");
 
-      expect(stack.stackControl).toEqual([19, 88]);
+      expect(stack.stackControl).toEqual([19, 88,"hola"]);
     });
+
+    it ("Should return the number of elements inserted, (new)", function(){
+      stack.push(33);
+      stack.push(22);
+
+      expect(stack.stackControl.length).toEqual(2);
+
+    })
 
     it ("Should return 'Stack Overflow' if the stack is full", function () {
       stack.MAX_SIZE = 1;
@@ -83,9 +101,12 @@ describe("Stack", function() {
 
     it ("Should return the last element inserted in the stack", function () {
       stack.push(19);
-      stack.push(88);
+      stack.push("hola");
+      stack.push(99);
 
-      expect(stack.pop()).toBe(88);
+      expect(stack.pop()).toBe(99);
+      //The pop() method removes the last element of an array,
+      //and returns that element.
     });
 
     it ("Should return 'Stack Underflow' if there are no elements in the stack", function () {
@@ -95,14 +116,13 @@ describe("Stack", function() {
 });
 
 
-
-
 describe("Queues", function() {
   var queue;
 
   beforeEach(function() {
     queue = new QueueDataStructure();
   });
+
 
   describe ("Queue properties", function () {
     it ("Should has an array to add the elements to the queue", function () {
@@ -118,6 +138,7 @@ describe("Queues", function() {
     it ("Should has a method to check if the current queue is empty", function () {
       expect(typeof(queue.isEmpty)).toBe('function');
     });
+
 
     it ("Should has a method to check if we can enqueue an element into the queue", function () {
       expect(typeof(queue.canEnqueue)).toBe('function');
@@ -147,6 +168,8 @@ describe("Queues", function() {
       queue.enqueue(19);
 
       expect(queue.queueControl.length).toBe(1);
+      expect(queue.queueControl).not.toBe("undefined");
+      expect(queue.queueControl).not.toEqual([15]);
     });
 
     it ("Should return that queue is not empty when enqueuing an element", function () {
@@ -162,8 +185,9 @@ describe("Queues", function() {
     it ("Should insert the elements in the reverse received order", function () {
       queue.enqueue(19);
       queue.enqueue(88);
+      queue.enqueue(33);
 
-      expect(queue.queueControl).toEqual([88, 19]);
+      expect(queue.queueControl).toEqual([33, 88, 19]);
     });
 
     it ("Should return 'Queue Overflow' if the stack is full", function () {

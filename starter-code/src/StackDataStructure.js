@@ -5,7 +5,7 @@ function StackDataStructure () {
     //this.canPush=function(){};
     //this.push=function(){};
     //this.pop=function(){};
-    /*
+/*
     this.isEmpty=function(){
             if (this.stackControl.length===0)
                 return true;
@@ -30,8 +30,9 @@ function StackDataStructure () {
       if (this.isEmpty()) return 'Stack Underflow';
       else return this.stackControl.pop();
     };
-    */
+   */
 } // end object prototype StackDataStructure
+
 
 StackDataStructure.prototype.isEmpty=function(){
         if (this.stackControl.length===0)
