@@ -2,12 +2,6 @@
 $(document).ready(function(){
   stack = new StackDataStructure();
 
-    //var inputValue = $('input').val();
-/*
-    $("input").click(function(e){
-      console.log($(this).val());
-    });
-*/
     $('.add').click(function(){
       var inputValue = $('input').val();
       if (stack.push($('input').val())==='Stack Overflow') {
