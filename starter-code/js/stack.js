@@ -40,8 +40,9 @@ $(document).ready(function(){
 
 
     $('.addQ').click(function(){
-      var inputValue = $('input').val();
-      if (queue.enqueue($('input').val())==='Queue Overflow') {
+
+      var inputValue = $(':input[name="fnamequeue"]')[0].value;
+      if (queue.enqueue(inputValue)==='Queue Overflow') {
         console.log('Stack Overflow');
         $('<p></p>');
         $('.queue-container').append('<p></p>');
